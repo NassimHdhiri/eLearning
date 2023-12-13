@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AsideBar from '../../components/Dash/AsideBar';
 import NavBar from '../../components/Dash/navbar/Index';
 import ListOfCourses from '../../components/dashStudent/enrolledCourses/ListOfCourses';
@@ -6,9 +6,18 @@ import CourseDetails from '../../components/dashStudent/enrolledCourses/CourseDe
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import ConfirmDialogeLogout from '../../components/dashStudent/index.tsx/ConfirmDialogeLogout';
+import { getAllCourses } from '../../features/dashstudent/Enrolledcourses';
+import { useDispatch } from 'react-redux';
+
 
 
 const EnrolledCourses = () => {
+  const dispatch=useDispatch();
+
+  useEffect(()=>{
+    dispatch(getAllCourses);
+  },[])
+
   const { courses } = useSelector((state: RootState) => state.dashStudentEnrolledCourses);
   const { displaying } = useSelector((state: RootState) => state.dashStudentIndex);
 

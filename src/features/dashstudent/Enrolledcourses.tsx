@@ -34,7 +34,7 @@ interface DashStudentEnrolledCoursesState {
   courses: Course[];
   clickedCourse: Course;
   courseDetails: CourseDetails[];
-};
+}
 
 const initialState: DashStudentEnrolledCoursesState = {
   loading: false,
@@ -51,14 +51,7 @@ const initialState: DashStudentEnrolledCoursesState = {
   },
   pseudo: "pseudo",
   courses: [
-    { id: "123", description: "xxxxxxxxx1", title: 'course 1', enrolledDate: '12/08/2023', lastSeen: '12/08/2023', tutorName: 'Ahmed Ali', percentageOfCompletion: 50 },
-    { id: "124", description: "xxxxxxx2xx", title: 'sirina', enrolledDate: '12/08/2023', lastSeen: '12/08/2023', tutorName: 'Ahmed Ali', percentageOfCompletion: 50 },
-    { id: "125", description: "xxxxxxxx3x", title: 'course 1', enrolledDate: '12/08/2023', lastSeen: '12/08/2023', tutorName: 'Ahmed Ali', percentageOfCompletion: 50 },
-    { id: "126", description: "xxxxxxxxx4", title: 'course 1', enrolledDate: '12/08/2023', lastSeen: '12/08/2023', tutorName: 'Ahmed Ali', percentageOfCompletion: 50 },
-    { id: "127", description: "xxxxx5xxxx", title: 'course 1', enrolledDate: '12/08/2023', lastSeen: '12/08/2023', tutorName: 'Ahmed Ali', percentageOfCompletion: 50 },
-    { id: "128", description: "xxxxxx6xxx", title: 'course 1', enrolledDate: '12/08/2023', lastSeen: '12/08/2023', tutorName: 'Ahmed Ali', percentageOfCompletion: 50 },
-    { id: "129", description: "xxxxxxx7xx", title: 'course 1', enrolledDate: '12/08/2023', lastSeen: '12/08/2023', tutorName: 'Ahmed Ali', percentageOfCompletion: 50 },
-    { id: "130", description: "xxxxxxxx8x", title: 'course 1', enrolledDate: '12/08/2023', lastSeen: '12/08/2023', tutorName: 'Ahmed Ali', percentageOfCompletion: 50 },
+    
   ],
   courseDetails: [
     { title: "Course x", description: "Course xxxxxxxxx", materials: [] },
@@ -78,16 +71,16 @@ export const getCourseDetailsPerId = createAsyncThunk(
 );
 
 // api get
-
 export const getAllCourses = createAsyncThunk(
   'enrolled_courses/getAllCourses',
   async () => {
     // Simulate an asynchronous API call
-    const response = await fetch(`your_api_endpoint/allCourses`);
+    const response = await fetch('http://127.0.0.1:8000/student/enrolled-courses/1');
     const data = await response.json();
     return data;
   }
 );
+
 // api add course
 export const addCourse = createAsyncThunk(
   'enrolled_courses/addCourse',
